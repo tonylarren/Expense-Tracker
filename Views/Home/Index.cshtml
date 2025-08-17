@@ -1,8 +1,63 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Dashboard";
+    var totalExpenses = (decimal)ViewData["TotalExpenses"];
+    var expensesByCategory = ViewData["ExpensesByCategory"] as IEnumerable<dynamic>;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-4">
+    <h2>Dashboard</h2>
+
+    <div class="card p-3 mb-4">
+        
+        <h4>Total Expenses: @totalExpenses.ToString("N0") Ar</h4>
+    </div>
+
+    <h5>Expenses by Category</h5>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in expensesByCategory)
+            {
+                <tr>
+                    <td>@item.Category</td>
+                    <td>@item.Total.ToString("N0") Ar</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h5>Visual Chart</h5>
+   
+    <div class="card p-3 mb-4" style="max-width: 500px; margin:auto;">
+    <h5>Expenses by Category</h5>
+    <canvas id="categoryChart" height="300"></canvas>
 </div>
+
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    var labels = @Html.Raw(Json.Serialize(expensesByCategory.Select(e => e.Category)));
+    var data = @Html.Raw(Json.Serialize(expensesByCategory.Select(e => e.Total)));
+
+    var ctx = document.getElementById('categoryChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff']
+            }]
+        }
+    });
+</script>
+
+    
+}
