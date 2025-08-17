@@ -17,5 +17,6 @@ A simple expense tracking web app built with:
    ```bash
    dotnet ef database update
 4. Run the app:
+    ```bash
     dotnet run
 
