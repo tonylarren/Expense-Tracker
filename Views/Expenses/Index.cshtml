@@ -1,54 +1,57 @@
+@using ExpenseTracker.Controllers
+@using Microsoft.Extensions.Localization
 @model IEnumerable<ExpenseTracker.Models.Expense>
-
+@inject IStringLocalizer<ExpensesController> Localizer
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1> @Localizer["ExpensesList"]</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">@Localizer["AddExpense"]</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Amount)
+                @Localizer["Amount"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Date)
+                @Localizer["Date"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Localizer["Description"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                @Localizer["Category"]
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Id)
-            </td>
-            
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Id)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">@Localizer["EditExpense"]</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">@Localizer["ExpenseDetails"]</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">@Localizer["DeleteExpense"]</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

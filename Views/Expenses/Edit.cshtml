@@ -1,12 +1,15 @@
+@using ExpenseTracker.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ExpensesController> Localizer
 @model ExpenseTracker.Models.Expense
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>@Localizer["EditExpense"]</h1>
 
-<h4>Expense</h4>
+<h4>@Localizer["Expense"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -41,7 +44,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">@Localizer["Back"]</a>
 </div>
 
 @section Scripts {

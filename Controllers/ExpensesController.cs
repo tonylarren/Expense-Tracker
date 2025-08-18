@@ -7,15 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ExpenseTracker.Data;
 using ExpenseTracker.Models;
+using Microsoft.Extensions.Localization;
 
 namespace ExpenseTracker.Controllers
 {
     public class ExpensesController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IStringLocalizer<ExpensesController> _localizer;
 
-        public ExpensesController(AppDbContext context)
+
+        public ExpensesController(AppDbContext context,IStringLocalizer<ExpensesController> localizer)
         {
+            _localizer = localizer;
             _context = context;
         }
 

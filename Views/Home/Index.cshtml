@@ -1,23 +1,27 @@
-﻿@{
-    ViewData["Title"] = "Dashboard";
+﻿@using System.Globalization
+@using Microsoft.Extensions.Localization
+@using ExpenseTracker.Controllers
+@inject IStringLocalizer<HomeController> Localizer
+
+@{
+    ViewData["Title"] = Localizer["DashboardTitle"];
     var totalExpenses = (decimal)ViewData["TotalExpenses"];
     var expensesByCategory = ViewData["ExpensesByCategory"] as IEnumerable<dynamic>;
 }
 
 <div class="container mt-4">
-    <h2>Dashboard</h2>
+    <h2>@ViewData["Title"]</h2>
 
-    <div class="card p-3 mb-4">
-        
-        <h4>Total Expenses: @totalExpenses.ToString("N0") Ar</h4>
+    <div class="card p-3 mb-4" style="max-width:500px; margin:auto;">
+        <h4>@Localizer["TotalExpenses"]: @totalExpenses.ToString("N0") Ar</h4>
     </div>
 
-    <h5>Expenses by Category</h5>
+    <h5>@Localizer["ExpensesByCategory"]</h5>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Category</th>
-                <th>Total</th>
+                <th>@Localizer["Category"]</th>
+                <th>@Localizer["Amount"]</th>
             </tr>
         </thead>
         <tbody>
@@ -31,33 +35,38 @@
         </tbody>
     </table>
 
-    <h5>Visual Chart</h5>
-   
-    <div class="card p-3 mb-4" style="max-width: 500px; margin:auto;">
-    <h5>Expenses by Category</h5>
-    <canvas id="categoryChart" height="300"></canvas>
-</div>
+    <h5>@Localizer["VisualChart"]</h5>
+    <div class="card p-3 mb-4" style="max-width:500px; margin:auto;">
+        <canvas id="categoryChart" height="300"></canvas>
+    </div>
 
+    <div class="mt-3 text-center">
+        <a asp-action="SetLanguage" asp-route-culture="en-US" asp-route-returnUrl="@Url.Action("Index")">English</a> |
+        <a asp-action="SetLanguage" asp-route-culture="fr-FR" asp-route-returnUrl="@Url.Action("Index")">Français</a> |
+        <a asp-action="SetLanguage" asp-route-culture="mg-MG" asp-route-returnUrl="@Url.Action("Index")">Malagasy</a>
+    </div>
 </div>
 
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-    var labels = @Html.Raw(Json.Serialize(expensesByCategory.Select(e => e.Category)));
-    var data = @Html.Raw(Json.Serialize(expensesByCategory.Select(e => e.Total)));
+        var labels = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(expensesByCategory.Select(e => e.Category)));
+        var data = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(expensesByCategory.Select(e => e.Total)));
 
-    var ctx = document.getElementById('categoryChart').getContext('2d');
-    var chart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: labels,
-            datasets: [{
-                data: data,
-                backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff']
-            }]
-        }
-    });
-</script>
-
-    
+        var ctx = document.getElementById('categoryChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: data,
+                    backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    </script>
 }
