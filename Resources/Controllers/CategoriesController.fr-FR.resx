@@ -13,14 +13,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 
-<data name="Expense" xml:space="preserve">
-    <value>Dépense</value>
+  <data name="CategoriesList" xml:space="preserve">
+    <value>Liste des categories</value>
   </data>
-  <data name="ExpensesList" xml:space="preserve">
-    <value>Liste des dépenses</value>
+  <data name="Category" xml:space="preserve">
+    <value>Categprie</value>
   </data>
-  <data name="AddExpense" xml:space="preserve">
-    <value>Ajouter une dépense</value>
+  <data name="AddCategory" xml:space="preserve">
+    <value>Ajouter une catégorie sokajy</value>
   </data>
-  
+ 
 </root>

@@ -13,7 +13,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 
-<data name="Expense" xml:space="preserve">
+  <data name="Expense" xml:space="preserve">
     <value>Fandaniana</value>
   </data>
   <data name="ExpensesList" xml:space="preserve">
@@ -21,29 +21,5 @@
   </data>
   <data name="AddExpense" xml:space="preserve">
     <value>Manampy fandaniana</value>
-  </data>
-  <data name="EditExpense" xml:space="preserve">
-    <value>Hanova </value>
-  </data>
-  <data name="DeleteExpense" xml:space="preserve">
-    <value>Hamafa </value>
-  </data>
-  <data name="ExpenseDetails" xml:space="preserve">
-    <value>Antsipirihany</value>
-  </data>
-  <data name="Category" xml:space="preserve">
-    <value>Sokajy</value>
-  </data>
-  <data name="Amount" xml:space="preserve">
-    <value>Vola</value>
-  </data>
-  <data name="Date" xml:space="preserve">
-    <value>Daty</value>
-  </data>
-  <data name="Description" xml:space="preserve">
-    <value>Fanazavana</value>
-  </data>
-  <data name="Back" xml:space="preserve">
-    <value>Hiverina</value>
   </data>
 </root>

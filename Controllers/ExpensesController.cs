@@ -86,7 +86,7 @@ namespace ExpenseTracker.Controllers
             {
                 return NotFound();
             }
-            ViewBag.Categories = _context.Categories.ToList();
+            ViewBag.Categories = new SelectList(_context.Categories, "Id", "Name", expense.CategoryId);
             return View(expense);
         }
 

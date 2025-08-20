@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> SharedLocalizer
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -23,15 +26,33 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@SharedLocalizer["Home"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Expenses" asp-action="Index">Expenses</a>
+                            <a class="nav-link text-dark" asp-controller="Expenses" asp-action="Index">@SharedLocalizer["Expenses"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Categories" asp-action="Index">Categories</a>
+                            <a class="nav-link text-dark" asp-controller="Categories" asp-action="Index">@SharedLocalizer["Categories"]</a>
                         </li>
 
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                @SharedLocalizer["Language"]
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                                <li>
+                                    <a class="dropdown-item"  asp-controller="Home" asp-action="SetLanguage" asp-route-culture="en-US" asp-route-returnUrl="@Context.Request.Path">@SharedLocalizer["English"]</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"  asp-controller="Home" asp-action="SetLanguage" asp-route-culture="fr-FR" asp-route-returnUrl="@Context.Request.Path">@SharedLocalizer["French"]</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"  asp-controller="Home" asp-action="SetLanguage" asp-route-culture="mg-MG" asp-route-returnUrl="@Context.Request.Path">@SharedLocalizer["Malagasy"]</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -22,28 +22,5 @@
   <data name="AddExpense" xml:space="preserve">
     <value>Add Expense</value>
   </data>
-  <data name="EditExpense" xml:space="preserve">
-    <value>Edit </value>
-  </data>
-  <data name="DeleteExpense" xml:space="preserve">
-    <value>Delete </value>
-  </data>
-  <data name="ExpenseDetails" xml:space="preserve">
-    <value> Details</value>
-  </data>
-  <data name="Category" xml:space="preserve">
-    <value>Category</value>
-  </data>
-  <data name="Amount" xml:space="preserve">
-    <value>Amount</value>
-  </data>
-  <data name="Date" xml:space="preserve">
-    <value>Date</value>
-  </data>
-  <data name="Description" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="Back" xml:space="preserve">
-    <value>Back to the list</value>
-  </data>
+ 
 </root>

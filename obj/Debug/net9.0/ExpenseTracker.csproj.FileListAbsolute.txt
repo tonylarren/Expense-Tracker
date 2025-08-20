@@ -356,3 +356,9 @@ C:\Users\TONY RAK\Documents\Expense tracker\ExpenseTracker\obj\Debug\net9.0\ref\
 C:\Users\TONY RAK\Documents\Expense tracker\ExpenseTracker\obj\Debug\net9.0\ExpenseTracker.Resources.Controllers.ExpensesController.en-US.resources
 C:\Users\TONY RAK\Documents\Expense tracker\ExpenseTracker\obj\Debug\net9.0\ExpenseTracker.Resources.Controllers.ExpensesController.fr-FR.resources
 C:\Users\TONY RAK\Documents\Expense tracker\ExpenseTracker\obj\Debug\net9.0\ExpenseTracker.Resources.Controllers.ExpensesController.mg-MG.resources
+C:\Users\TONY RAK\Documents\Expense tracker\ExpenseTracker\obj\Debug\net9.0\ExpenseTracker.Resources.SharedResource.en-US.resources
+C:\Users\TONY RAK\Documents\Expense tracker\ExpenseTracker\obj\Debug\net9.0\ExpenseTracker.Resources.SharedResource.fr-FR.resources
+C:\Users\TONY RAK\Documents\Expense tracker\ExpenseTracker\obj\Debug\net9.0\ExpenseTracker.Resources.SharedResource.mg-MG.resources
+C:\Users\TONY RAK\Documents\Expense tracker\ExpenseTracker\obj\Debug\net9.0\ExpenseTracker.Resources.Controllers.Categories.Controller.mg-MG.resources
+C:\Users\TONY RAK\Documents\Expense tracker\ExpenseTracker\obj\Debug\net9.0\ExpenseTracker.Resources.Controllers.CategoriesController.en-US.resources
+C:\Users\TONY RAK\Documents\Expense tracker\ExpenseTracker\obj\Debug\net9.0\ExpenseTracker.Resources.Controllers.CategoriesController.fr-FR.resources
