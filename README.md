@@ -6,6 +6,7 @@ A simple expense tracking web app built with:
 - SQL Server Express
 
 ## Features
+- User authentification
 - Add, edit, delete expenses
 - Categorize expenses
 - View reports & charts
