@@ -1,4 +1,7 @@
+@using ExpenseTracker.Controllers
 @using Microsoft.Extensions.Localization
+@inject IStringLocalizer<CategoriesController> Localizer
+
 @inject IStringLocalizer<SharedResource> SharedLocalizer
 @model IEnumerable<ExpenseTracker.Models.Category>
 
@@ -9,7 +12,7 @@
 <h1>@SharedLocalizer["Category"]</h1>
 
 <p>
-    <a asp-action="Create">@SharedLocalizer["AddCategory"]</a>
+    <a asp-action="Create">@Localizer["AddCategory"]</a>
 </p>
 <table class="table">
     <thead>

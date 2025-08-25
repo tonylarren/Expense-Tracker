@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ExpenseTracker.Data;
 using ExpenseTracker.Models;
 using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Identity;
 
 namespace ExpenseTracker.Controllers
 {
@@ -15,17 +16,24 @@ namespace ExpenseTracker.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IStringLocalizer<CategoriesController> _localizer;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ILogger<CategoriesController> _logger;
 
-        public CategoriesController(AppDbContext context, IStringLocalizer<CategoriesController> localizer)
+        public CategoriesController(ILogger<CategoriesController> logger, AppDbContext context, IStringLocalizer<CategoriesController> localizer, UserManager<ApplicationUser> userManager)
         {
             _localizer = localizer;
             _context = context;
+            _userManager = userManager;
+            _logger = logger;
         }
 
         // GET: Categories
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Categories.ToListAsync());
+             var userId = _userManager.GetUserId(User);
+            return View(await _context.Categories
+                .Where(e => e.UserId == userId)
+                .ToListAsync());
         }
 
         // GET: Categories/Details/5
@@ -59,12 +67,24 @@ namespace ExpenseTracker.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name")] Category category)
         {
+            _logger.LogInformation("Tsy TAFDITRA ATO EEEE");
             if (ModelState.IsValid)
             {
+                category.UserId = _userManager.GetUserId(User);
+                _logger.LogInformation("USER ID ITO ANATINY ITO EEE" + category.UserId + "SA OEEE");
                 _context.Add(category);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            foreach (var key in ModelState.Keys)
+            {
+                var state = ModelState[key];
+                foreach (var error in state.Errors)
+                {
+                    _logger.LogWarning($"ModelState Error on {key}: {error.ErrorMessage}");
+                }
+            }
+
             return View(category);
         }
 

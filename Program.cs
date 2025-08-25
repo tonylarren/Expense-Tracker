@@ -2,6 +2,10 @@ using ExpenseTracker.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
+using ExpenseTracker.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using ExpenseTracker.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,11 +16,26 @@ builder.Services.AddLocalization(options => options.ResourcesPath = "Resources")
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+builder.Services.AddSingleton<IEmailSender, DummyEmailSender>();
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+    options.AccessDeniedPath = "/Account/AccessDenied";
+});
+
 // Add MVC with view localization
 builder.Services.AddControllersWithViews()
        .AddViewLocalization()
        .AddDataAnnotationsLocalization();
 
+// Add Razor Pages
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -44,6 +63,8 @@ app.UseHttpsRedirection();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.MapRazorPages(); 
 
 app.MapStaticAssets();
 

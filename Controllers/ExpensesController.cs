@@ -8,26 +8,37 @@ using Microsoft.EntityFrameworkCore;
 using ExpenseTracker.Data;
 using ExpenseTracker.Models;
 using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace ExpenseTracker.Controllers
 {
+    [Authorize]
     public class ExpensesController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+
         private readonly IStringLocalizer<ExpensesController> _localizer;
 
 
-        public ExpensesController(AppDbContext context,IStringLocalizer<ExpensesController> localizer)
+        public ExpensesController(AppDbContext context, IStringLocalizer<ExpensesController> localizer, UserManager<ApplicationUser> userManager)
         {
             _localizer = localizer;
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Expenses
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Expenses.Include(e => e.Category);
-            return View(await appDbContext.ToListAsync());
+            var userId = _userManager.GetUserId(User);
+            var expenses = await _context.Expenses
+                .Where(e => e.UserId == userId)
+                .Include(e => e.Category)
+                .ToListAsync();
+
+            return View(expenses);
         }
 
         // GET: Expenses/Details/5
@@ -37,8 +48,9 @@ namespace ExpenseTracker.Controllers
             {
                 return NotFound();
             }
-
+            var userId = _userManager.GetUserId(User);
             var expense = await _context.Expenses
+                .Where(e => e.UserId == userId)
                 .Include(e => e.Category)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (expense == null)
@@ -52,7 +64,8 @@ namespace ExpenseTracker.Controllers
         // GET: Expenses/Create
         public IActionResult Create()
         {
-            ViewBag.Categories = _context.Categories.ToList();
+            var userId = _userManager.GetUserId(User);
+            ViewBag.Categories = _context.Categories.Where(c => c.UserId == userId).ToList();
             return View();
         }
 
@@ -65,11 +78,13 @@ namespace ExpenseTracker.Controllers
         {
             if (ModelState.IsValid)
             {
+                expense.UserId = _userManager.GetUserId(User);
                 _context.Add(expense);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Id", expense.CategoryId);
+            var currentUserId = _userManager.GetUserId(User);
+            ViewBag.Categories = _context.Categories.Where(c => c.UserId == currentUserId).ToList();
             return View(expense);
         }
 

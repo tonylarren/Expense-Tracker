@@ -14,13 +14,13 @@
   </resheader>
 
   <data name="CategoriesList" xml:space="preserve">
-    <value>Liste des categories</value>
+    <value>Liste des catégories</value>
   </data>
   <data name="Category" xml:space="preserve">
-    <value>Categprie</value>
+    <value>Catégorie</value>
   </data>
   <data name="AddCategory" xml:space="preserve">
-    <value>Ajouter une catégorie sokajy</value>
+    <value>Ajouter une catégorie</value>
   </data>
  
 </root>
