@@ -70,4 +70,58 @@
 <data name="Malagasy" xml:space="preserve">
   <value>Malagasy</value>
 </data>
+<data name="Login" xml:space="preserve">
+  <value>Miditra</value>
+</data>
+<data name="Logout" xml:space="preserve">
+  <value>Mivoaka</value>
+</data>
+<data name="Register" xml:space="preserve">
+  <value>Misoratra anarana</value>
+</data>
+<data name="RememberMe" xml:space="preserve">
+  <value>Tsarovy aho</value>
+</data>
+<data name="ForgotPassword" xml:space="preserve">
+  <value>Hadino ny tenimiafina</value>
+</data>
+<data name="Email" xml:space="preserve">
+  <value>Mailaka</value>
+</data>
+<data name="Password" xml:space="preserve">
+  <value>Tenimiafina</value>
+</data>
+<data name="ConfirmPassword" xml:space="preserve">
+  <value>Hamarino ny tenimiafina</value>
+</data>
+<data name="CreateANewAccount" xml:space="preserve">
+  <value>Mamorona kaonty vaovao</value>
+</data>
+<data name="UseLocalAccount" xml:space="preserve">
+  <value>Mampiasa kaonty eo an-toerana hiditra</value>
+</data>
+<data name="ManageProfile" xml:space="preserve">
+  <value>Mitantana ny mombamomba</value>
+</data>
+<data name="Settings" xml:space="preserve">
+  <value>Fikirakirana</value>
+</data>
+<data name="Budget" xml:space="preserve">
+  <value>Tetibola</value>
+</data>
+<data name="SetBudget" xml:space="preserve">
+  <value>Apetraka ny teti-bola</value>
+</data>
+<data name="EditBudget" xml:space="preserve">
+  <value>Hanova</value>
+</data>
+<data name="ExpenseByCategory" xml:space="preserve">
+  <value>Lany isaky ny sokajy</value>
+</data>
+<data name="BudgetTitle" xml:space="preserve">
+  <value>Teti-bola</value>
+</data>
+
+
+
 </root>

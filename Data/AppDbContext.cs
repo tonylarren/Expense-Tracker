@@ -11,6 +11,9 @@ namespace ExpenseTracker.Data
 
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Budget> Budgets { get; set; }
+        
+       
 
         
 
@@ -23,14 +26,15 @@ namespace ExpenseTracker.Data
                 .HasOne(e => e.Category)
                 .WithMany(c => c.Expenses)
                 .HasForeignKey(e => e.CategoryId)
-                .OnDelete(DeleteBehavior.Restrict); 
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Configure the relationship between Categories and Users
             modelBuilder.Entity<Category>()
                 .HasOne(c => c.User)
                 .WithMany()
                 .HasForeignKey(c => c.UserId)
-                .OnDelete(DeleteBehavior.Restrict); 
+                .OnDelete(DeleteBehavior.Restrict);
         }
+        public DbSet<ExpenseTracker.Models.Budget> Budget { get; set; } = default!;
     }
 }

@@ -49,6 +49,13 @@ public class HomeController : Controller
             })
             .ToList();
 
+        var budget = _context.Budgets
+            .Where(b => b.UserId == userId && b.StartDate <= DateTime.Now && b.EndDate >= DateTime.Now)
+            .FirstOrDefault();
+
+        _logger.LogInformation($"Budget for user {userId}: {(budget != null ? budget.Amount.ToString() : "No budget set")}");
+
+        ViewData["Budget"] = budget;
         ViewData["TotalExpenses"] = totalExpenses;
         ViewData["ExpensesByCategory"] = expensesByCategory;
         return View();

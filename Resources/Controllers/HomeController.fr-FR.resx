@@ -30,6 +30,9 @@
   <data name="VisualChart" xml:space="preserve">
     <value>Chart visu</value>
   </data>
+  <data name="Budget" xml:space="preserve">
+  <value>Budget</value>
+</data>
 </root>
 
 

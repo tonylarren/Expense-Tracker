@@ -188,6 +188,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/TONY RAK/Documents/Expense tracker/ExpenseTracker/Views/Budget/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVkZ2V0XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TONY RAK/Documents/Expense tracker/ExpenseTracker/Views/Budget/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVkZ2V0XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TONY RAK/Documents/Expense tracker/ExpenseTracker/Views/Budget/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVkZ2V0XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TONY RAK/Documents/Expense tracker/ExpenseTracker/Views/Budget/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVkZ2V0XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/TONY RAK/Documents/Expense tracker/ExpenseTracker/Views/Budget/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVkZ2V0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/TONY RAK/Documents/Expense tracker/ExpenseTracker/Views/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

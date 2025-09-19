@@ -135,4 +135,7 @@
   <data name="VisualChart" xml:space="preserve">
     <value>Visual chart</value>
   </data>
+  <data name="Budget" xml:space="preserve">
+  <value>Budget</value>
+</data>
 </root>

@@ -70,5 +70,57 @@
 <data name="Malagasy" xml:space="preserve">
   <value>Malagasy</value>
 </data>
+<data name="Login" xml:space="preserve">
+  <value>Login</value>
+</data>
+<data name="Logout" xml:space="preserve">
+  <value>Logout</value>
+</data>
+<data name="Register" xml:space="preserve">
+  <value>Register</value>
+</data>
+<data name="RememberMe" xml:space="preserve">
+  <value>Remember me</value>
+</data>
+<data name="ForgotPassword" xml:space="preserve">
+  <value>Forgot password</value>
+</data>
+<data name="Email" xml:space="preserve">
+  <value>Email</value>
+</data>
+<data name="Password" xml:space="preserve">
+  <value>Password</value>
+</data>
+<data name="ConfirmPassword" xml:space="preserve">
+  <value>Confirm password</value>
+</data>
+<data name="CreateANewAccount" xml:space="preserve">
+  <value>Create a new account</value>
+</data>
+<data name="UseLocalAccount" xml:space="preserve">
+  <value>Use a local account to log in</value>
+</data>
+<data name="ManageProfile" xml:space="preserve">
+  <value>Manage profile</value>
+</data>
+<data name="Settings" xml:space="preserve">
+  <value>Settings</value>
+</data>
+<data name="Budget" xml:space="preserve">
+  <value>Budget</value>
+</data>
+<data name="SetBudget" xml:space="preserve">
+  <value>Set budget</value>
+</data>
+<data name="EditBudget" xml:space="preserve">
+  <value>Edit</value>
+</data>
+<data name="ExpenseByCategory" xml:space="preserve">
+  <value>Expense by Category</value>
+</data>
+<data name="BudgetTitle" xml:space="preserve">
+  <value>Budget</value>
+</data>
+
   
 </root>

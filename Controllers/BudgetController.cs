@@ -7,36 +7,29 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ExpenseTracker.Data;
 using ExpenseTracker.Models;
-using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Identity;
 
 namespace ExpenseTracker.Controllers
 {
-    public class CategoriesController : Controller
+    public class BudgetController : Controller
     {
         private readonly AppDbContext _context;
-        private readonly IStringLocalizer<CategoriesController> _localizer;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly ILogger<CategoriesController> _logger;
 
-        public CategoriesController(ILogger<CategoriesController> logger, AppDbContext context, IStringLocalizer<CategoriesController> localizer, UserManager<ApplicationUser> userManager)
+        public BudgetController(AppDbContext context, UserManager<ApplicationUser> userManager)
         {
-            _localizer = localizer;
             _context = context;
             _userManager = userManager;
-            _logger = logger;
         }
-
-        // GET: Categories
+        
+        // GET: Budget
         public async Task<IActionResult> Index()
         {
-            var userId = _userManager.GetUserId(User);
-            return View(await _context.Categories
-                .Where(e => e.UserId == userId)
-                .ToListAsync());
+            var appDbContext = _context.Budget.Include(b => b.User);
+            return View(await appDbContext.ToListAsync());
         }
 
-        // GET: Categories/Details/5
+        // GET: Budget/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,51 +37,45 @@ namespace ExpenseTracker.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categories
+            var budget = await _context.Budget
+                .Include(b => b.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (category == null)
+            if (budget == null)
             {
                 return NotFound();
             }
 
-            return View(category);
+            return View(budget);
         }
 
-        // GET: Categories/Create
+        // GET: Budget/Create
         public IActionResult Create()
         {
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
-        // POST: Categories/Create
+        // POST: Budget/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Category category)
+        public async Task<IActionResult> Create([Bind("Id,UserId,Amount,StartDate,EndDate,Category")] Budget budget)
         {
-
             if (ModelState.IsValid)
             {
-                category.UserId = _userManager.GetUserId(User);
-                _logger.LogInformation("USER ID" + category.UserId + "");
-                _context.Add(category);
+                budget.UserId = _userManager.GetUserId(User);
+                 
+                _context.Add(budget);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            foreach (var key in ModelState.Keys)
-            {
-                var state = ModelState[key];
-                foreach (var error in state.Errors)
-                {
-                    _logger.LogWarning($"ModelState Error on {key}: {error.ErrorMessage}");
-                }
-            }
+                return RedirectToAction("Index", "Home");
 
-            return View(category);
+            }
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", budget.UserId);
+            return View(budget);
         }
 
-        // GET: Categories/Edit/5
+        // GET: Budget/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -96,47 +83,37 @@ namespace ExpenseTracker.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categories.FindAsync(id);
-            if (category == null)
+            var budget = await _context.Budget.FindAsync(id);
+            if (budget == null)
             {
                 return NotFound();
             }
-            return View(category);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", budget.UserId);
+            return View(budget);
         }
 
-        // POST: Categories/Edit/5
+        // POST: Budget/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,UserId,Amount,StartDate,EndDate,Category")] Budget budget)
         {
-            if (id != category.Id)
+            if (id != budget.Id)
             {
                 return NotFound();
             }
-
-            var userId = _userManager.GetUserId(User);
-
-            var existingCategory = await _context.Categories
-                .Where(c => c.Id == id && c.UserId == userId)
-                .FirstOrDefaultAsync();
-
-            if (existingCategory == null)
-                return NotFound(); 
-
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    existingCategory.Name = category.Name;
-                    
+                    _context.Update(budget);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CategoryExists(category.Id))
+                    if (!BudgetExists(budget.Id))
                     {
                         return NotFound();
                     }
@@ -145,12 +122,14 @@ namespace ExpenseTracker.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
+
             }
-            return View(category);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", budget.UserId);
+            return View(budget);
         }
 
-        // GET: Categories/Delete/5
+        // GET: Budget/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -158,34 +137,35 @@ namespace ExpenseTracker.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categories
+            var budget = await _context.Budget
+                .Include(b => b.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (category == null)
+            if (budget == null)
             {
                 return NotFound();
             }
 
-            return View(category);
+            return View(budget);
         }
 
-        // POST: Categories/Delete/5
+        // POST: Budget/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
-            if (category != null)
+            var budget = await _context.Budget.FindAsync(id);
+            if (budget != null)
             {
-                _context.Categories.Remove(category);
+                _context.Budget.Remove(budget);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CategoryExists(int id)
+        private bool BudgetExists(int id)
         {
-            return _context.Categories.Any(e => e.Id == id);
+            return _context.Budget.Any(e => e.Id == id);
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "s5801PB3a9Du1ClNAJ6m2wGWFDWdmRb0/T5z6OHGTGs=",
+  "Hash": "aWpiwkRd9M805u55oSj9YA6F1Mn6lf3i05Zm5nEExes=",
   "Source": "ExpenseTracker",
   "BasePath": "_content/ExpenseTracker",
   "Mode": "Default",
@@ -1487,12 +1487,12 @@
       "OriginalItemSpec": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\obj\\Debug\\net9.0\\compressed\\2kc4ra80sh-b9sayid5wm.gz",
+      "Identity": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\obj\\Debug\\net9.0\\compressed\\2kc4ra80sh-idcu14lyjv.gz",
       "SourceId": "ExpenseTracker",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/ExpenseTracker",
-      "RelativePath": "css/site#[.{fingerprint=b9sayid5wm}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=idcu14lyjv}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1501,8 +1501,8 @@
       "RelatedAsset": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "0suozzrugb",
-      "Integrity": "0FC1RbVkLkwKhJ1oi+r2Hw4Tm9av6DyJeo95YVvfA3Y=",
+      "Fingerprint": "udcahb4n4i",
+      "Integrity": "MhqgA3bNQoVVCr6qtZ4dxFoEvA0YmQvyKVWZ1keMIb0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\wwwroot\\css\\site.css"
@@ -4042,8 +4042,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "b9sayid5wm",
-      "Integrity": "j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=",
+      "Fingerprint": "idcu14lyjv",
+      "Integrity": "2mTWqPSoOneDf3FgwY8dy48HK5UhX4qa3bReTUKlQfM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -5353,13 +5353,13 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/site.b9sayid5wm.css",
-      "AssetFile": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\obj\\Debug\\net9.0\\compressed\\2kc4ra80sh-b9sayid5wm.gz",
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\obj\\Debug\\net9.0\\compressed\\2kc4ra80sh-idcu14lyjv.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.003134796238"
+          "Quality": "0.001992031873"
         }
       ],
       "ResponseHeaders": [
@@ -5369,19 +5369,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "318"
+          "Value": "501"
         },
         {
           "Name": "ETag",
-          "Value": "\"0FC1RbVkLkwKhJ1oi+r2Hw4Tm9av6DyJeo95YVvfA3Y=\""
+          "Value": "\"MhqgA3bNQoVVCr6qtZ4dxFoEvA0YmQvyKVWZ1keMIb0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 17 Aug 2025 15:12:49 GMT"
+          "Value": "Mon, 25 Aug 2025 19:23:44 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -5397,26 +5397,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "W/\"2mTWqPSoOneDf3FgwY8dy48HK5UhX4qa3bReTUKlQfM=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "b9sayid5wm"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-2mTWqPSoOneDf3FgwY8dy48HK5UhX4qa3bReTUKlQfM="
         }
       ]
     },
     {
-      "Route": "css/site.b9sayid5wm.css",
+      "Route": "css/site.css",
       "AssetFile": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5426,7 +5418,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "667"
+          "Value": "1382"
         },
         {
           "Name": "Content-Type",
@@ -5434,11 +5426,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "\"2mTWqPSoOneDf3FgwY8dy48HK5UhX4qa3bReTUKlQfM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 17 Aug 2025 15:12:49 GMT"
+          "Value": "Mon, 25 Aug 2025 19:23:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2mTWqPSoOneDf3FgwY8dy48HK5UhX4qa3bReTUKlQfM="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css.gz",
+      "AssetFile": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\obj\\Debug\\net9.0\\compressed\\2kc4ra80sh-idcu14lyjv.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "501"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MhqgA3bNQoVVCr6qtZ4dxFoEvA0YmQvyKVWZ1keMIb0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 25 Aug 2025 19:23:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MhqgA3bNQoVVCr6qtZ4dxFoEvA0YmQvyKVWZ1keMIb0="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.idcu14lyjv.css",
+      "AssetFile": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\obj\\Debug\\net9.0\\compressed\\2kc4ra80sh-idcu14lyjv.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001992031873"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "501"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MhqgA3bNQoVVCr6qtZ4dxFoEvA0YmQvyKVWZ1keMIb0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 25 Aug 2025 19:23:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"2mTWqPSoOneDf3FgwY8dy48HK5UhX4qa3bReTUKlQfM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "idcu14lyjv"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2mTWqPSoOneDf3FgwY8dy48HK5UhX4qa3bReTUKlQfM="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.idcu14lyjv.css",
+      "AssetFile": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1382"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2mTWqPSoOneDf3FgwY8dy48HK5UhX4qa3bReTUKlQfM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 25 Aug 2025 19:23:44 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5448,7 +5585,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "idcu14lyjv"
         },
         {
           "Name": "label",
@@ -5456,13 +5593,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-2mTWqPSoOneDf3FgwY8dy48HK5UhX4qa3bReTUKlQfM="
         }
       ]
     },
     {
-      "Route": "css/site.b9sayid5wm.css.gz",
-      "AssetFile": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\obj\\Debug\\net9.0\\compressed\\2kc4ra80sh-b9sayid5wm.gz",
+      "Route": "css/site.idcu14lyjv.css.gz",
+      "AssetFile": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\obj\\Debug\\net9.0\\compressed\\2kc4ra80sh-idcu14lyjv.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5471,7 +5608,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "318"
+          "Value": "501"
         },
         {
           "Name": "Content-Type",
@@ -5479,11 +5616,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0FC1RbVkLkwKhJ1oi+r2Hw4Tm9av6DyJeo95YVvfA3Y=\""
+          "Value": "\"MhqgA3bNQoVVCr6qtZ4dxFoEvA0YmQvyKVWZ1keMIb0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 17 Aug 2025 15:12:49 GMT"
+          "Value": "Mon, 25 Aug 2025 19:23:44 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5501,7 +5638,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "idcu14lyjv"
         },
         {
           "Name": "label",
@@ -5509,144 +5646,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-0FC1RbVkLkwKhJ1oi+r2Hw4Tm9av6DyJeo95YVvfA3Y="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\obj\\Debug\\net9.0\\compressed\\2kc4ra80sh-b9sayid5wm.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.003134796238"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "318"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"0FC1RbVkLkwKhJ1oi+r2Hw4Tm9av6DyJeo95YVvfA3Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 17 Aug 2025 15:12:49 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "667"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 17 Aug 2025 15:12:49 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css.gz",
-      "AssetFile": "C:\\Users\\TONY RAK\\Documents\\Expense tracker\\ExpenseTracker\\obj\\Debug\\net9.0\\compressed\\2kc4ra80sh-b9sayid5wm.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "318"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"0FC1RbVkLkwKhJ1oi+r2Hw4Tm9av6DyJeo95YVvfA3Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 17 Aug 2025 15:12:49 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-0FC1RbVkLkwKhJ1oi+r2Hw4Tm9av6DyJeo95YVvfA3Y="
+          "Value": "sha256-MhqgA3bNQoVVCr6qtZ4dxFoEvA0YmQvyKVWZ1keMIb0="
         }
       ]
     },

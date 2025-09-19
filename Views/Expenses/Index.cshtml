@@ -4,7 +4,7 @@
 @inject IStringLocalizer<ExpensesController> Localizer
 @inject IStringLocalizer<SharedResource> SharedLocalizer
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = SharedLocalizer["Expenses"];
 }
 
 <h1> @Localizer["ExpensesList"]</h1>

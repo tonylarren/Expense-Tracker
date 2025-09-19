@@ -30,4 +30,7 @@
   <data name="VisualChart" xml:space="preserve">
     <value>Fampisehoana grafika</value>
   </data>
+  <data name="Budget" xml:space="preserve">
+  <value>Tetibola</value>
+</data>
 </root>

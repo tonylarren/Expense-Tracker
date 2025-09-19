@@ -76,16 +76,47 @@ namespace ExpenseTracker.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Amount,Date,Description,CategoryId")] Expense expense)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                expense.UserId = _userManager.GetUserId(User);
-                _context.Add(expense);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var currentUserId = _userManager.GetUserId(User);
+                ViewBag.Categories = _context.Categories.Where(c => c.UserId == currentUserId).ToList();
+                return View(expense);
             }
-            var currentUserId = _userManager.GetUserId(User);
-            ViewBag.Categories = _context.Categories.Where(c => c.UserId == currentUserId).ToList();
-            return View(expense);
+
+            var userId = _userManager.GetUserId(User);
+
+            // Get current user's active budget
+            var budget = await _context.Budgets
+                            .Where(b => b.UserId == userId
+                                     && b.StartDate <= DateTime.Now
+                                     && b.EndDate >= DateTime.Now)
+                            .FirstOrDefaultAsync();
+
+            if (budget != null)
+            {
+                // Calculate total expenses in current budget period
+                var totalExpenses = await _context.Expenses
+                    .Where(e => e.UserId == userId
+                             && e.Date >= budget.StartDate
+                             && e.Date <= budget.EndDate)
+                    .SumAsync(e => (decimal?)e.Amount) ?? 0;
+
+                var remaining = budget.Amount - totalExpenses;
+
+                if (expense.Amount > remaining)
+                {
+                    ModelState.AddModelError("", $"Cannot add expense. Remaining budget is {remaining:N0} Ar.");
+                    ViewBag.Categories = _context.Categories.Where(c => c.UserId == userId).ToList();
+                    return View(expense);
+                }
+            }
+
+            // Save expense if within budget
+            expense.UserId = userId;
+            _context.Add(expense);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Expenses/Edit/5
@@ -117,11 +148,27 @@ namespace ExpenseTracker.Controllers
                 return NotFound();
             }
 
+            // Get current user's ID
+            var userId = _userManager.GetUserId(User);
+
+            var existingExpense = await _context.Expenses
+                .Where(e => e.Id == id && e.UserId == userId)
+                .FirstOrDefaultAsync();
+
+            if (existingExpense == null)
+                return NotFound();
+
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(expense);
+                    // Update only allowed fields
+                    existingExpense.Amount = expense.Amount;
+                    existingExpense.Date = expense.Date;
+                    existingExpense.Description = expense.Description;
+                    existingExpense.CategoryId = expense.CategoryId;
+
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -137,7 +184,11 @@ namespace ExpenseTracker.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Categories = _context.Categories.ToList();
+            // Repopulate categories for dropdown
+            var categories = await _context.Categories
+                .Where(c => c.UserId == userId)
+                .ToListAsync();
+            ViewBag.Categories = categories;
             return View(expense);
         }
 

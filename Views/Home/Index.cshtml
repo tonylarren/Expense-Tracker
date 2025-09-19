@@ -2,19 +2,54 @@
 @using Microsoft.Extensions.Localization
 @using ExpenseTracker.Controllers
 @inject IStringLocalizer<HomeController> Localizer
+@inject IStringLocalizer<SharedResource> SharedLocalizer
 
 @{
     ViewData["Title"] = Localizer["DashboardTitle"];
     var totalExpenses = (decimal)ViewData["TotalExpenses"];
     var expensesByCategory = ViewData["ExpensesByCategory"] as IEnumerable<dynamic>;
+    var budget = ViewData["Budget"] as dynamic;
 }
 
 <div class="container mt-4">
     <h2>@ViewData["Title"]</h2>
 
-    <div class="card p-3 mb-4" style="max-width:500px; margin:auto;">
-        <h4>@Localizer["TotalExpenses"]: @totalExpenses.ToString("N0") Ar</h4>
+    <div class="row justify-content-center mb-4 d-flex">
+    <!-- Total Expenses Card -->
+    <div class="col-md-3 d-flex">
+        <div class="card p-3 text-center flex-fill d-flex flex-column justify-content-between">
+            <h6 class="text-muted">@Localizer["TotalExpenses"]</h6> <!-- Label at top -->
+            <h4 class="mb-0">@totalExpenses.ToString("N0") Ar</h4> <!-- Actual value -->
+        </div>
     </div>
+
+    <!-- Budget Card with Button -->
+    <div class="col-md-3 d-flex">
+        <div class="card p-3 text-center flex-fill d-flex flex-column justify-content-between">
+            <h6 class="text-muted">@Localizer["Budget"]</h6> <!-- Label at top -->
+            <div class="d-flex justify-content-center align-items-center mt-2">
+                <h4 class="mb-0 me-2">@budget?.Amount.ToString("N0") Ar</h4>
+                
+                @if (budget == null)
+                {
+                    <a asp-controller="Budget" asp-action="Create" class="btn btn-success btn-sm">
+                        <i class="bi bi-plus"></i>
+                    </a>
+                }
+                else
+                {
+                    <a asp-controller="Budget" asp-action="Edit" asp-route-id="@budget.Id" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 
     <h5>@Localizer["ExpensesByCategory"]</h5>
     <table class="table table-bordered">
@@ -36,20 +71,36 @@
     </table>
 
     <h5>@Localizer["VisualChart"]</h5>
-    <div class="card p-3 mb-4" style="max-width:500px; margin:auto;">
-        <canvas id="categoryChart" height="300"></canvas>
+    <div class="row justify-content-center mb-4">
+        <!-- Category chart -->
+        <div class="col-md-5">
+            <div class="card p-3" style="height:350px;">
+                <h5 class="card-title text-center mb-3">@SharedLocalizer["ExpenseByCategory"]</h5>
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Budget chart -->
+        <div class="col-md-5">
+            <div class="card p-3" style="height:350px;">
+                <h5 class="card-title text-center mb-3">@SharedLocalizer["BudgetTitle"]</h5>
+                <canvas id="budgetChart"></canvas>
+            </div>
+        </div>
     </div>
 
 </div>
 
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
+        // === Category Chart ===
         var labels = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(expensesByCategory.Select(e => e.Category)));
         var data = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(expensesByCategory.Select(e => e.Total)));
 
         var ctx = document.getElementById('categoryChart').getContext('2d');
-        var chart = new Chart(ctx, {
+        new Chart(ctx, {
             type: 'pie',
             data: {
                 labels: labels,
@@ -60,7 +111,33 @@
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+
+        // === Budget Chart ===
+        var budgetAmount = @budget?.Amount ?? 0;
+        var totalExpenses = @totalExpenses ?? 0;
+        var remaining = Math.max(budgetAmount - totalExpenses, 0);
+
+        var budgetLabels = ["Total Expenses", "Remaining Budget"];
+        var budgetData = [totalExpenses, remaining];
+
+        var ctx2 = document.getElementById('budgetChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: budgetLabels,
+                datasets: [{
+                    data: budgetData,
+                    backgroundColor: ['#ff6384', '#36a2eb']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } }
             }
         });
     </script>

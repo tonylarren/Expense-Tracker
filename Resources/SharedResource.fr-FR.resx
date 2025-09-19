@@ -70,4 +70,58 @@
 <data name="Malagasy" xml:space="preserve">
   <value>Malgache</value>
 </data>
+<data name="Login" xml:space="preserve">
+  <value>Connexion</value>
+</data>
+<data name="Logout" xml:space="preserve">
+  <value>Déconnexion</value>
+</data>
+<data name="Register" xml:space="preserve">
+  <value>S’inscrire</value>
+</data>
+<data name="RememberMe" xml:space="preserve">
+  <value>Se souvenir de moi</value>
+</data>
+<data name="ForgotPassword" xml:space="preserve">
+  <value>Mot de passe oublié</value>
+</data>
+<data name="Email" xml:space="preserve">
+  <value>Email</value>
+</data>
+<data name="Password" xml:space="preserve">
+  <value>Mot de passe</value>
+</data>
+<data name="ConfirmPassword" xml:space="preserve">
+  <value>Confirmer le mot de passe</value>
+</data>
+<data name="CreateANewAccount" xml:space="preserve">
+  <value>Créer un nouveau compte</value>
+</data>
+<data name="UseLocalAccount" xml:space="preserve">
+  <value>Utiliser un compte local pour se connecter</value>
+</data>
+<data name="ManageProfile" xml:space="preserve">
+  <value>Gérer le profil</value>
+</data>
+<data name="Settings" xml:space="preserve">
+  <value>Paramètres</value>
+</data>
+<data name="Budget" xml:space="preserve">
+  <value>Budget</value>
+</data>
+<data name="SetBudget" xml:space="preserve">
+  <value>Définir le budget</value>
+</data>
+<data name="EditBudget" xml:space="preserve">
+  <value>Modifier</value>
+</data>
+<data name="ExpenseByCategory" xml:space="preserve">
+  <value>Dépenses par catégorie</value>
+</data>
+<data name="BudgetTitle" xml:space="preserve">
+  <value>Budget</value>
+</data>
+
+
+
 </root>
